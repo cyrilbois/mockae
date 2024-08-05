@@ -1,0 +1,26 @@
+{
+  "name": "mockae",
+  "version": "1.0.0",
+  "description": "Mock rest api",
+  "main": "src/bin.js",
+  "scripts": {
+    "start": "node src/bin.js",
+    "test": "jest"
+  },
+  "author": "Cyril Bois",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrilbois/mockae.git"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "fengari": "^0.1.4",
+    "lua-in-js": "^2.2.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
