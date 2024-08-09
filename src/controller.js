@@ -56,7 +56,7 @@ module.exports = class Controller {
     async patch(req, res, next) {
         await this.update(req, res, next, true);
     }
-    async delete(req, res, next, patch = false) {
+    async delete(req, res, next) {
         const { resource = '', id = '' } = req.params;
         const item = await this.#service.delete(resource, id); 
         if (item) {

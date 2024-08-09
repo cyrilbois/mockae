@@ -4,7 +4,7 @@ const path = require('path');
 const DB = require ('./db.js');
 const Controller = require('./controller.js');
 const Service = require ('./service.js');
-const { Rule, RuleOptions } = require ('./rule.js');
+const { Rule } = require ('./rule.js');
 const createApp = require('./app.js');
 
 function help() {

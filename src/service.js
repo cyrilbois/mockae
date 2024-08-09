@@ -1,5 +1,3 @@
-const fs = require('fs');
-const fsPromises = require('fs/promises');
 const crypto = require('crypto');
 
 module.exports = class Service {

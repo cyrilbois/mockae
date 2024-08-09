@@ -16,7 +16,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "fengari": "^0.1.4",
     "lua-in-js": "^2.2.5"
   },
   "devDependencies": {
