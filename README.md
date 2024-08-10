@@ -89,7 +89,7 @@ PATCH   /products/2   Update partially the product with ID 2
 DELETE  /products/2   Delete the product with ID 2
 ```
 
-A public API is available on (https://mockae.com)[mockae.com] to test this fake API.
+A public API is available on [mockae.com](https://mockae.com) to test this fake API.
 
 ### Pagination
 
