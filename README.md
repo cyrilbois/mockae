@@ -1,6 +1,6 @@
 # Mockae
 
-Mockae is a powerful and flexible tool designed for mocking REST APIs with Lua code execution. It allows to easily simulate and test API behaviors, providing a dynamic environment to craft custom responses and logic.
+Mockae is a versatile tool that allows you to mock REST APIs using Lua code execution. It allows to easily simulate and test API behaviors, providing a dynamic environment to craft custom responses and logic.
 
 ## Install
 
@@ -89,6 +89,8 @@ PATCH   /products/2   Update partially the product with ID 2
 DELETE  /products/2   Delete the product with ID 2
 ```
 
+A public API is available on (https://mockae.com)[mockae.com] to test this fake API.
+
 ### Pagination
 
 - page
@@ -145,6 +147,7 @@ Launch tests
 ```shell
 $ npm test
 ```
+
 ## License
 
 MIT License
