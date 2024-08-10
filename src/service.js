@@ -11,12 +11,28 @@ module.exports = class Service {
     static createId() {
         return crypto.randomBytes(3).toString('hex');
     }
-    get(name, id) {      
+    static paginate(array, page, limit) {
+        if (page == null && limit == null) {
+            return array;
+        }
+        page = page != null ? parseInt(page) : 1;
+        limit = limit != null ? parseInt(limit) : 10;
+        if (Number.isNaN(page) || Number.isNaN(limit) || page < 1 || limit < 1) {
+            return [];
+        }
+        const startIndex = (page - 1) * limit;
+        return startIndex < array.length ? array.slice(startIndex, startIndex + limit) : [];
+    }
+    get(name, id, query = {}) {      
         const resource = this.#db.data[name];
         if (Array.isArray(resource)) {
-            const item = resource.find((item) => item['id'] === id);
-            if (item) {
-                return item;
+            if (id) {
+                const item = resource.find((item) => item['id'] === id);
+                if (item) {
+                    return item;
+                }    
+            } else {
+                return Service.paginate(resource, query.page, query.limit);
             }
         }
         return null;

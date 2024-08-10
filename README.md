@@ -1,6 +1,19 @@
 # mockae
 
-## Usage
+Mockae is a powerful and flexible tool designed for mocking REST APIs with Lua code execution. It allows to easily simulate and test API behaviors, providing a dynamic environment to craft custom responses and logic.
+
+## Install
+
+```shell
+$ npm install mockae
+
+# Or clone the repository
+$ git clone https://github.com/cyrilbois/mockae.git
+$ cd mockae
+$ npm install
+```
+
+## Configuration
 
 Create a `db.json` file
 
@@ -26,6 +39,7 @@ Create a `db.json` file
 }
 }
 ```
+In this example, you have created 2 resources: "products" and "users" (2 objects for each resource).
 
 Create a `rules.lua` file
 
@@ -39,6 +53,9 @@ if request.method() == "POST" and request.pathname() == "/users" then
     return response.exit()
 end
 ```
+With these rules, when calling the creation of a "users" a 400 error is returned.
+
+## Usage
 
 Start the REST API service
 
@@ -63,13 +80,24 @@ The REST API handles different HTTP methods for creating, retrieving, updating, 
 
 
 ```
-GET     /products	    Returns all products
-GET     /products/2 	Returns the product with ID 2
-POST    /products	    Create a new product
-GET     /products/2	    Returns the product with ID 2
-PUT     /products/2	    Update the product with ID 2
-PATCH   /products/2	    Update partially the product with ID 2
-DELETE  /products/2 	Delete the product with ID 2
+GET     /products     Returns all products
+GET     /products/2   Returns the product with ID 2
+POST    /products     Create a new product
+GET     /products/2   Returns the product with ID 2
+PUT     /products/2   Update the product with ID 2
+PATCH   /products/2   Update partially the product with ID 2
+DELETE  /products/2   Delete the product with ID 2
+```
+
+### Pagination
+
+- page
+- limit 
+
+```
+GET     /products?limit=5         Returns the first 5 products (Page defaults to 1)
+GET     /products?page=2          Returns 10 products from the second page (default limit is 10)
+GET     /products?page=2&limit=5  Returns 5 products from the second page (Page starts at 1)
 ```
 
 ## Custom rules
@@ -110,10 +138,13 @@ Here is the information in a Markdown table:
 | response.exit()            | Stops the standard execution of the API (No action or resource loading will be performed)       |
 ```
 
-## Test
+## Tests
 
-Launch test
+Launch tests
 
 ```shell
 $ npm test
 ```
+## License
+
+MIT License

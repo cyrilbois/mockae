@@ -9,12 +9,7 @@ describe('Service', () => {
     let service;
 
     beforeEach(() => {
-        db = DB.createFromData({
-            test: [
-                { id: '1', name: 'Item 1', description: 'Description 1' }, 
-                { id: '2', name: 'Item 2', description: 'Description 2' }
-            ]
-        });
+        db = DB.createFromData({});
         service = new Service(db);
     });
 
@@ -55,6 +50,28 @@ describe('Service', () => {
             db.data['test'] = [{ id: '1', name: 'Item 1' }];
             const item = service.get('test', '2');
             expect(item).toBeNull();
+        });
+
+        it('should return all items', () => {
+            db.data['test'] = [{ id: '1', name: 'Item 1' }, { id: '2', name: 'Item 2' }];
+            const item = service.get('test', null);
+            expect(item).toEqual([{ id: '1', name: 'Item 1' }, { id: '2', name: 'Item 2' }]);
+        });
+
+        it('should return all items with a limit of 2', () => {
+            db.data['test'] = [{ id: '1', name: 'Item 1' }, { id: '2', name: 'Item 2' }, { id: '3', name: 'Item 3' }];
+            const item = service.get('test', null, {limit: 2});
+            expect(item).toEqual([{ id: '1', name: 'Item 1' }, { id: '2', name: 'Item 2' }]);
+        });
+        it('should return all items on page 2 (default 10)', () => {
+            db.data['test'] = [{ id: '1', name: 'Item 1' }, { id: '2', name: 'Item 2' }, { id: '3', name: 'Item 3' }, { id: '4', name: 'Item 4' }, { id: '5', name: 'Item 5' }, { id: '6', name: 'Item 6' }, { id: '7', name: 'Item 7' }, { id: '8', name: 'Item 8' }, { id: '9', name: 'Item 9' }, { id: '10', name: 'Item 10' }, { id: '11', name: 'Item 11' }, { id: '12', name: 'Item 12' }];
+            const item = service.get('test', null, {page: 2});
+            expect(item).toEqual([ { id: '11', name: 'Item 11' }, { id: '12', name: 'Item 12' }]);
+        });
+        it('should return all items on page 3 with a limit of 1', () => {
+            db.data['test'] = [{ id: '1', name: 'Item 1' }, { id: '2', name: 'Item 2' }, { id: '3', name: 'Item 3' }, { id: '4', name: 'Item 4' }];
+            const item = service.get('test', null, {page: 3, limit: 1});
+            expect(item).toEqual([{ id: '3', name: 'Item 3' }]);
         });
     });
 

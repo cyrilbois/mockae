@@ -34,7 +34,7 @@ function createApp(controller, rule) {
         res.send('Mockae :)');
     });
 
-    app.get('/:resource/:id', controller.get.bind(controller));
+    app.get('/:resource/:id?', controller.get.bind(controller));
 
     app.post('/:resource', controller.create.bind(controller));
 

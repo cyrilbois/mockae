@@ -7,7 +7,7 @@ module.exports = class Controller {
     }
     get(req, res, next) {
         const { resource = '', id = '' } = req.params;
-        const item = this.#service.get(resource, id);
+        const item = this.#service.get(resource, id, req.query);
         if (item) {
             res.response.status(200).send(item);
         } else {

@@ -62,7 +62,9 @@ class Rule {
     constructor() {
         const self = this;
         this.#invalid = false;
-        this.#luaEnv = luainjs.createEnv();
+        this.#luaEnv = luainjs.createEnv({
+            stdout: function (param) { }
+        });
         this.#current = null;
         {
             function id() {
