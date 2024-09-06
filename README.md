@@ -60,6 +60,9 @@ With these rules, when calling the creation of a "users" a 400 error is returned
 Start the REST API service
 
 ```shell
+$ npx mockae
+
+# Or if you have cloned the repository
 $ npm start
 ```
 
