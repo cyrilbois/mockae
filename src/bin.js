@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const { parseArgs } = require('util');
 const path = require('path');
