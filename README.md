@@ -140,6 +140,10 @@ Here is the information in a Markdown table:
 | response.exit()            | Stops the standard execution of the API (No action or resource loading will be performed)       |
 ```
 
+## Contributing
+Contributions are welcome! If you have ideas, improvements, or bug fixes, feel free to submit a pull request. 
+Please ensure your changes keep things simple and easy to maintain. Thank you for helping make this project better!
+
 ## Tests
 
 Launch tests
