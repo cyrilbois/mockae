@@ -115,8 +115,6 @@ The Request and Response objects are provided to define the rules.
 
 The Request object is used to represent the request data.
 
-Sure, here is the table without quotes in the methods:
-
 ```md
 | Method                  | Description                                                                        |
 |-------------------------|------------------------------------------------------------------------------------|
@@ -131,8 +129,6 @@ Sure, here is the table without quotes in the methods:
 ###  Response
 
 The Response object is used to update the response, including the HTTP status, headers, and payload.
-
-Here is the information in a Markdown table:
 
 ```md
 | Method                     | Description                                                                                     |
